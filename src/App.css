@@ -1,0 +1,206 @@
+/* QuestionBox styling */
+.questionbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  text-align: center;
+  background-color: rgba(245, 158, 183, 0.216);
+  border: 4px solid rgb(250, 47, 105);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Options button styling */
+.options {
+  width: 500px;
+  height: 40px;
+  color: white;
+  border: 1px solid rgb(250, 47, 105);
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  background: rgba(251, 134, 167, 0.679);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  box-shadow: inset 1px 1px 1px 0px rgba(255, 255, 255, 0.152),
+    7px 7px 20px 0px rgba(75, 75, 75, 0.5),
+    4px 4px 5px 0px rgba(75, 75, 75, 0.5);
+  outline: none;
+}
+
+/* Custom button hover styling */
+.btn-9 {
+  border: none;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.btn-9:after {
+  position: absolute;
+  content: ' ';
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f91ff9;
+  background-image: linear-gradient(
+    90deg,
+    rgb(238, 118, 152) 20%,
+    #412df2 100%
+  );
+  transition: all 0.5s ease;
+}
+.btn-9:hover {
+  background: transparent;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+  color: rgb(27, 19, 43);
+  font-size: 17px;
+  font-weight: 800;
+}
+.btn-9:hover:after {
+  transform: scale(2) rotate(180deg);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+}
+
+/* Button base styling */
+.btn {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgb(247, 75, 124);
+  border: 2px solid rgb(219, 97, 132);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+}
+
+/* Slide button animations */
+.btn.btn-slide-1 {
+  box-shadow: inset 0 0 0 0 rgb(138, 106, 211);
+}
+.btn.btn-slide-1:hover {
+  box-shadow: inset 200px 50px 0 0 rgb(138, 106, 211);
+  border: 2px solid rgb(138, 106, 211);
+  font-weight: 700;
+}
+.btn.btn-slide-2 {
+  box-shadow: inset 0 0 0 0 rgb(138, 106, 211);
+}
+.btn.btn-slide-2:hover {
+  box-shadow: inset -200px -50px 0 0 rgb(138, 106, 211);
+  border: 2px solid rgb(138, 106, 211);
+  font-weight: 700;
+}
+
+/* Dark mode toggle switch */
+.dark {
+  position: fixed;
+  top: 10%;
+  left: 90%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.ball {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: pink;
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 2px solid rgb(219, 97, 132);
+}
+.ball:before {
+  position: absolute;
+  content: '';
+  height: 25px;
+  width: 25px;
+  right: 4px;
+  bottom: 4px;
+  background-color: rgb(219, 97, 132);
+  transition: 0.6s;
+  border-radius: 50%;
+}
+.ball:hover {
+  border: 2px solid rgb(138, 106, 211);
+  background-color: rgba(137, 106, 211, 0.626);
+  height: 35px;
+  width: 70px;
+}
+.ball:hover:before {
+  background-color: rgba(54, 40, 87, 0.626);
+}
+
+/* Dark and light mode classes */
+.dark .ball {
+  background-color: black;
+  color: white;
+}
+.light .ball {
+  background-color: white;
+  color: black;
+}
+button.ball {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Result box styling */
+.result-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  text-align: center;
+  background-color: rgba(245, 158, 183, 0.216);
+  border: 5px solid rgb(219, 97, 132);
+  padding: 30px;
+  border-radius: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Restart button styling */
+.restart-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: rgb(247, 75, 124);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.restart-btn:hover {
+  background-color: rgba(138, 106, 211, 0.8);
+  font-weight: bold;
+}
