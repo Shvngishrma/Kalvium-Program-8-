@@ -63,4 +63,5 @@ You are provided with a base project, but certain features are incomplete. Your 
 
 ## Time Limit
 
-- This assignment should be completed within **1 hour**.
+- This milestone should be completed within **1 hour**.
+- You will be required to compress and upload the file, requesting to keep an eye on the timer as well.
