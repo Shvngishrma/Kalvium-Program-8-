@@ -8,25 +8,33 @@ import Darkbutton from './components/Darkbutton';
 function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
-  // TASK 1: Complete this function to handle when the user selects an option.
-  // Increment the score if the selected option is correct, and move to the next question.
+  // Handle option click and progress to next question
   const optionClick = (isCorrect) => {
-    console.log('Option clicked:', isCorrect);
-
-    // Increment score if the answer is correct
-    // Move to the next question
+    if (isCorrect) {
+      setScore(score + 1); // Increment score if the answer is correct
+    }
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1); // Move to the next question
+    } else {
+      setShowResult(true); // Show the result after the last question
+    }
   };
 
-  // TASK 2: Write the logic to restart the quiz when this function is called.
+  // Restart the quiz
   const restartQuiz = () => {
-    // Reset score and current question
+    setScore(0);
+    setCurrentQuestion(0);
+    setShowResult(false);
   };
 
   return (
     <div>
       <h3>Score: {score}</h3>
-      {currentQuestion < questions.length ? (
+      {showResult ? (
+        <Result score={score} len={questions.length} restartQuiz={restartQuiz} />
+      ) : (
         <>
           <Darkbutton />
           <QuestionBox
@@ -35,12 +43,6 @@ function App() {
             selectchoice={optionClick}
           />
         </>
-      ) : (
-        <Result
-          score={score}
-          len={questions.length}
-          restartQuiz={restartQuiz}
-        />
       )}
     </div>
   );

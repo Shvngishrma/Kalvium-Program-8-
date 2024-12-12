@@ -1,28 +1,51 @@
 import React, { useState } from 'react';
-import './Darkbutton.css';
+import './App.css';
+import questions from './questions';
+import Result from './components/Result';
+import QuestionBox from './components/QuestionBox';
+import Darkbutton from './components/Darkbutton';
 
-function Darkbutton() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+function App() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
-  // TASK 4: Implement the logic for changing the background and text color of the entire page.
-  const toggleDarkMode = () => {
-    // When dark mode is active, change background to black and text to white.
-    // When light mode is active, change background to white and text to black.
+  // Handle option click and progress to next question
+  const optionClick = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1); // Increment score if the answer is correct
+    }
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1); // Move to the next question
+    } else {
+      setShowResult(true); // Show the result after the last question
+    }
+  };
+
+  // Restart the quiz
+  const restartQuiz = () => {
+    setScore(0);
+    setCurrentQuestion(0);
+    setShowResult(false);
   };
 
   return (
-    <div className="toggle-container">
-      <label className="switch">
-        <input
-          type="checkbox"
-          checked={isDarkMode}
-          onChange={toggleDarkMode}
-          aria-label="Toggle Dark Mode"
-        />
-        <span className="slider round"></span>
-      </label>
+    <div>
+      <h3>Score: {score}</h3>
+      {showResult ? (
+        <Result score={score} len={questions.length} restartQuiz={restartQuiz} />
+      ) : (
+        <>
+          <Darkbutton />
+          <QuestionBox
+            questions={questions}
+            query={currentQuestion}
+            selectchoice={optionClick}
+          />
+        </>
+      )}
     </div>
   );
 }
 
-export default Darkbutton;
+export default App;
