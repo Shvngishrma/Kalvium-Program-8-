@@ -10,6 +10,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
 
+<<<<<<< HEAD
   // Handle option click and progress to next question
   const optionClick = (isCorrect) => {
     if (isCorrect) {
@@ -27,6 +28,19 @@ function App() {
     setScore(0);
     setCurrentQuestion(0);
     setShowResult(false);
+=======
+  const optionClick = (isCorrect) => {
+    console.log('Option clicked:', isCorrect);
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+    setCurrentQuestion(currentQuestion + 1);
+  };
+
+  const restartQuiz = () => {
+    setScore(0);
+    setCurrentQuestion(0);
+>>>>>>> f3dd48d07f32b2cdec588d90401761ae00e0e6c8
   };
 
   return (
